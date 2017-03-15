@@ -15,7 +15,7 @@ print(dim(Groceries)[2])  # 169 initial store items
 # examine frequency for each item with support greater than 0.025
 pdf(file="fig_market_basket_initial_item_support.pdf", 
     width = 8.5, height = 11)
-itemFrequencyPlot(Groceries, support = 0.025, cex.names=0.8, xlim = c(0,0.3),
+itemFrequencyPlot(Groceries, support = 0.045, cex.names=0.8, xlim = c(0,0.3),
                   type = "relative", horiz = TRUE, col = "dark red", las = 1,
                   xlab = paste("Proportion of Market Baskets Containing Item",
                                "\n(Item Relative Frequency or Support)"))
