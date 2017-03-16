@@ -16,7 +16,7 @@ print(dim(Groceries))
 pdf(file="fig_market_basket_initial_item_support.pdf", 
     width = 8.5, height = 11)
 itemFrequencyPlot(Groceries, support = 0.025, cex.names=0.8, xlim = c(0,0.3),
-                  type = "relative", horiz = TRUE, col = "dark red", las = 1,
+                  type = "relative", horiz = TRUE, col = "Green", las = 1,
                   xlab = paste("Proportion of Market Baskets Containing Item",
                                "\n(Item Relative Frequency or Support)"))
 dev.off()    
@@ -33,7 +33,7 @@ groceries <- aggregate(Groceries, itemInfo(Groceries)[["level2"]])
 
 pdf(file="fig_market_basket_final_item_support.pdf", width = 8.5, height = 11)
 itemFrequencyPlot(groceries, support = 0.025, cex.names=1.0, xlim = c(0,0.5),
-                  type = "relative", horiz = TRUE, col = "blue", las = 1,
+                  type = "relative", horiz = TRUE, col = "yellow", las = 1,
                   xlab = paste("Proportion of Market Baskets Containing Item",
                                "\n(Item Relative Frequency or Support)"))
 dev.off()   
