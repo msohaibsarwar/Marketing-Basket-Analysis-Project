@@ -50,34 +50,27 @@ print(summary(second.rules))  # yields 206 rules
 
 # data visualization of association rules in scatter plot
 pdf(file="fig_market_basket_rules.pdf", width = 8.5, height = 8.5)
-plot(second.rules, 
+plot(rules, 
      control=list(jitter=2, col = rev(brewer.pal(9, "Greens")[4:9])),
      shading = "lift")   
 dev.off()    
 
 # grouped matrix of rules 
 pdf(file="fig_market_basket_rules_matrix.pdf", width = 8.5, height = 8.5)
-plot(second.rules, method="grouped",   
+plot(rules, method="grouped",   
      control=list(col = rev(brewer.pal(9, "Greens")[4:9])))
 dev.off()    
 
-# select rules with vegetables in consequent (right-hand-side) item subsets
-vegie.rules <- subset(second.rules, subset = rhs %pin% "vegetables")
-inspect(vegie.rules)  # 41 rules
+# select rules with dairy produce in consequent (right-hand-side) item subsets
+dairy.rules <- subset(rules, subset = rhs %pin% "dairy produce")
+inspect(dairy.rules)  # 41 rules
 
 # sort by lift and identify the top 10 rules
-top.vegie.rules <- head(sort(vegie.rules, decreasing = TRUE, by = "lift"), 10)
-inspect(top.vegie.rules) 
+top.dairy.rules <- head(sort(dairy.rules, decreasing = TRUE, by = "lift"), 12)
+inspect(top.dairy.rules) 
 
-pdf(file="fig_market_basket_farmer_rules.pdf", width = 11, height = 8.5)
-plot(top.vegie.rules, method="graph", 
+pdf(file="fig_market_basket_dairy_rules.pdf", width = 11, height = 8.5)
+plot(top.dairy.rules, method="graph", 
      control=list(type="items"), 
      shading = "lift")
 dev.off()  
-
-# Suggestions for the student:
-# Suppose your client is someone other than the local farmer,
-# a meat producer/butcher, dairy, or brewer perhaps.
-# Determine association rules relevant to your client's products
-# guided by the market basket model. What recommendations
-# would you make about future marketplace actions?
